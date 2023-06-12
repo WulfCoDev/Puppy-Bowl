@@ -3,3 +3,71 @@
     margin: 0;
     box-sizing: border-box;
   }
+
+  /* CSS for the form */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+form h2 {
+  margin-top: 0;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input[type='text'],
+form input[type='number'] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+form button[type='submit'] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* CSS for player cards */
+.player-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.player-card h3 {
+  margin-top: 0;
+}
+
+.player-card p {
+  margin-bottom: 10px;
+}
+
+.player-card button {
+  display: block;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
