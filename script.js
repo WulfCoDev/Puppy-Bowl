@@ -2,9 +2,9 @@ const playerContainer = document.getElementById('all-players-container');
 const newPlayerFormContainer = document.getElementById('new-player-form');
 
 // Add your cohort name to the cohortName variable below, replacing the 'COHORT-NAME' placeholder
-const cohortName = 'YOUR COHORT NAME HERE';
+const cohortName = '2302-ACC-ET-WEB-PT-D';
 // Use the APIURL variable for fetch requests
-const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
+const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${2302-ACC-ET-WEB-PT-D}/`;
 
 /**
  * It fetches all players from the API and returns them
@@ -12,6 +12,13 @@ const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
  */
 const fetchAllPlayers = async () => {
     try {
+        const response = await fetch (APIURL + 'players');
+        if (!response.ok){
+            throw new Error ('Failed to fetch players');
+        }
+
+        const data = await response.json();
+        return data;
 
     } catch (err) {
         console.error('Uh oh, trouble fetching players!', err);
@@ -20,7 +27,13 @@ const fetchAllPlayers = async () => {
 
 const fetchSinglePlayer = async (playerId) => {
     try {
+        const response = await fetch (APIURL + 'players/${playerId}');
+        if (!response.ok){
+            throw new Error ('Failed to fetch player #${playerId}');
+        }
 
+        const data = await response.json();
+        return data;
     } catch (err) {
         console.error(`Oh no, trouble fetching player #${playerId}!`, err);
     }
@@ -28,7 +41,18 @@ const fetchSinglePlayer = async (playerId) => {
 
 const addNewPlayer = async (playerObj) => {
     try {
-
+        const response = await fetch (APIURL + 'players', {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify (playerObj),
+        });
+        if (!response.ok) {
+            throw new Error ('Failed to add player');
+        }
+        const data = await response.json();
+        return data;
     } catch (err) {
         console.error('Oops, something went wrong with adding that player!', err);
     }
@@ -67,7 +91,10 @@ const removePlayer = async (playerId) => {
  */
 const renderAllPlayers = (playerList) => {
     try {
-        
+        let playerContainerHTML = '';
+        playerList.forEach ((player)=> {
+            
+        })
     } catch (err) {
         console.error('Uh oh, trouble rendering players!', err);
     }
