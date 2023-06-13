@@ -25,9 +25,10 @@ const fetchAllPlayers = async () => {
     }
 };
 
+
 const fetchSinglePlayer = async (playerId) => {
     try {
-        const response = await fetch (APIURL + 'players/${playerId}');
+        const response = await fetch (APIURL + `players/${playerId}`);
         if (!response.ok){
             throw new Error ('Failed to fetch player #${playerId}');
         }
@@ -227,7 +228,7 @@ const renderPlayerDetails = (player) => {
 
 const init = async () => {
     const players = await fetchAllPlayers();
-    renderAllPlayers(players);
+    renderAllPlayers(players.data.players);
 
     renderNewPlayerForm();
 }
